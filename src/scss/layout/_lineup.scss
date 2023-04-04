@@ -1,0 +1,80 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.lineup{
+    background-color: v.$rosa;
+    padding: 5rem 0;
+
+    h3, 
+    p{
+        color:  v.$blanco;
+        text-align: center;
+    }
+
+    .dia {
+        text-transform: uppercase;
+        margin: 5rem 0;
+    }
+}
+
+.escenarios-contenedor{
+    @include m.tablet {
+        @include m.grid(2, 5rem);
+    }
+
+    p{
+        color: v.$negro;
+    }
+}
+
+.escenario{ 
+    padding-top: 2rem;
+
+    .nombre-escenario{
+        &:after{
+            content: '';
+            display: block;
+            width: 20rem;
+            height: 10rem;
+            background-size: 15rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin: 2rem auto 0 auto;
+        }
+    }
+}
+
+.calendario{
+    @include m.resetear-lista;
+
+    li{
+        padding: 2.5rem;
+        font-weight: bold;
+
+        span{
+            font-weight: 400;
+        }
+    }
+}
+
+.edm .nombre-escenario:after{
+    background-image: url(../../../build/img/icono_edm.png);
+}
+
+.rock .nombre-escenario:after{
+    background-image: url(../../../build/img/icono_rock.png);
+}
+
+.bg-amarillo{
+    background-color: v.$amarillo;
+    li:nth-child(odd){//Seleccionar unicamente las impares
+        background-color: darken(v.$amarillo, 15%); //Parametros (color, porcentaje de oscurecimiento)
+    } 
+}
+
+.bg-verde{
+    background-color: v.$turquesa;
+    li:nth-child(odd){//Seleccionar unicamente las impares
+        background-color: darken(v.$turquesa, 10%); //Parametros (color, porcentaje de oscurecimiento)
+    }
+}

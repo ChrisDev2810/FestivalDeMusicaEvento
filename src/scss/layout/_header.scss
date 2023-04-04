@@ -1,0 +1,62 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.header{
+    background-color: v.$turquesa;
+    padding: 2rem;
+
+    a{
+        color: v.$blanco;
+    }
+
+    @include m.tablet {
+        &.fijo{
+            position: fixed;
+            width: 100%;
+            box-shadow: 1rem 2rem 3rem #333;
+            left: 0; //Importante para que la barra se quede a la izquierda
+            top: 0;//E importante para que la barra se quede arriba 
+        }
+    }
+
+    h1{ //Anidacion en SASS
+        color: v.$blanco;
+        text-align: center;
+        @include m.tablet {
+            margin: 0;
+        }    
+    }
+
+    .contenido-header{
+        @include m.tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+}
+
+
+.navegacion-principal{
+    @include m.tablet {
+        display: flex;
+        gap: 2rem;
+        
+    }
+    a{
+        display: block; //Links de arriba hacia abajo
+        justify-content: space-between;
+        text-align: center;
+        color: v.$blanco;
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+        @include m.tablet {
+            margin: 0;
+        }
+
+        &:hover{ // El & elimina el espacio que se crea entre el selector y el seudoelemnto al momento de compilarlo
+            color: v.$amarillo;
+        }
+    }
+}
